@@ -85,6 +85,9 @@ TextLayout.prototype.update = function(opt) {
       var id = text.charCodeAt(i)
       var glyph = self.getGlyph(font, id)
       if (glyph) {
+        if(i === start && align === ALIGN_CENTER) {
+          x -= glyph.xoffset * 0.5;
+        }
         if (lastGlyph) 
           x += getKerning(font, lastGlyph.id, glyph.id)
 
